@@ -1,3 +1,5 @@
+# TL;DR -> *** SKIP TO THE BOTTOM FOR A FUNCTION ***
+
 # Using Jupyter Notebook & given a dataframe "train_df" containing
 # data from Ames Housing Dataset, let's profile how many NAs we have
 
@@ -52,6 +54,8 @@ You can overwrite na_dict if you want:
  'MasVnrArea': {'count': 8, 'perc': 0.0055},
  'Electrical': {'count': 1, 'perc': 0.0007}}
 """
+
+# ------------------------------------------------------- #
 
 # You can make this a function for easy re-use
 def profile_nulls(df):
