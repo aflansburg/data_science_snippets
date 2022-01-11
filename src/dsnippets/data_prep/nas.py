@@ -27,5 +27,3 @@ def profile_nulls(df):
         return 'No Nulls'
     else:
         return {k: v for k, v in sorted(na_dict.items(), key=lambda feature: feature[1]['perc'], reverse=True)}
-
-# profile_nulls(df=train_df)
