@@ -6,7 +6,7 @@ with open("README.md", "r") as readme_file:
 requirements = []
 
 setup(
-    name="notebookc",
+    name="dsnippets",
     version="0.0.1",
     author="Abram Flansburg",
     author_email="abeflansburg@gmail.com",
