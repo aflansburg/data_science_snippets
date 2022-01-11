@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
 
-from data_prep.nas import profile_nulls
+from src.data_prep.nas import profile_nulls
 
 class TestNas(unittest.TestCase):
 
