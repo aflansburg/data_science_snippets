@@ -5,7 +5,7 @@ here = pathlib.Path(__file__).parent.resolve()
 
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
-requirements = []
+requirements = ['pandas']
 
 setup(
     name="dsnippets",
@@ -17,7 +17,7 @@ setup(
     long_description_content_type="text/markdown",
     url="https://github.com/aflansburg/dsnippets",
     package_dir={'': 'src'},
-    packages=find_packages(where='src'),
+    packages=find_packages(exclude=['tests*']),
     python_requires='>=3.7, <4',
     install_requires=requirements,
     classifiers=[
