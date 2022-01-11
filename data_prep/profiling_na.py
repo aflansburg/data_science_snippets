@@ -1,3 +1,4 @@
+# Author: Abram (Abe) Flansburg ¯\_(ツ)_/¯
 # TL;DR -> *** SKIP TO THE BOTTOM FOR A FUNCTION ***
 
 # Using Jupyter Notebook & given a dataframe "train_df" containing
