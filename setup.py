@@ -1,7 +1,9 @@
 from setuptools import setup, find_packages
+import pathlib
 
-with open("README.md", "r") as readme_file:
-  readme = readme_file.read()
+here = pathlib.Path(__file__).parent.resolve()
+
+long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 requirements = []
 
@@ -11,10 +13,12 @@ setup(
     author="Abram Flansburg",
     author_email="abeflansburg@gmail.com",
     description="Useful data science snippets - that you can import!",
-    long_description=readme,
+    long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/aflansburg/dsnippets",
-    packages=find_packages(),
+    package_dir={'': 'src'},
+    packages=find_packages(where='src'),
+    python_requires='>=3.8, <4',
     install_requires=requirements,
     classifiers=[
         "Programming Language :: Python :: 3.8",
