@@ -3,7 +3,7 @@
 
 # Using Jupyter Notebook & given a dataframe "train_df" containing
 # data from Ames Housing Dataset, let's profile how many NAs we have
-
+"""
 # create an empty dictionary to store info
 na_dict = {}
 
@@ -20,21 +20,18 @@ for col in train_df:
       na_dict[col] = { 'count': na_ct, 'perc': na_perc }
 
 # let's look at it now
-"""
-This is a clever way to sort our output.
-The outer brackets {} are of course for a dict
-The 'k: v for k,v in sorted(....)' begins a dictionary comprehension
-within the `sorted()` function, which returns a tuple of key/value pairs,
-we pass a lambda to the `key` parameter and tell it:
-'sort the dict by the value (tuple index 1), but use the nested 'perc' (or you could use count)'
+# This is a clever way to sort our output.
+# The outer brackets {} are of course for a dict
+# The 'k: v for k,v in sorted(....)' begins a dictionary comprehension
+# within the `sorted()` function, which returns a tuple of key/value pairs,
+# we pass a lambda to the `key` parameter and tell it:
+# 'sort the dict by the value (tuple index 1), but use the nested 'perc' (or you could use count)'
 
-You can overwrite na_dict if you want:
+# You can overwrite na_dict if you want:
 `na_dict = {k: v for k, v in sorted(na_dict.items(), key=lambda feature: feature[1]['perc'], reverse=True)}
-"""
 {k: v for k, v in sorted(na_dict.items(), key=lambda feature: feature[1]['perc'], reverse=True)}
 
 # Output:
-"""
 {'PoolQC': {'count': 1453, 'perc': 0.9952},
  'MiscFeature': {'count': 1406, 'perc': 0.963},
  'Alley': {'count': 1369, 'perc': 0.9377},
@@ -57,9 +54,14 @@ You can overwrite na_dict if you want:
 """
 
 # ------------------------------------------------------- #
-
-# You can make this a function for easy re-use
 def profile_nulls(df):
+    '''
+    Args:
+        df - input pandas dataframe
+    Returns:
+        Dictionary of columns with missing values sorted by percentage
+        Will return 'No Nulls' if all values present
+    '''
     na_dict = {}
     for col in df:
         na_ct = df[col].isnull().sum()
@@ -72,4 +74,4 @@ def profile_nulls(df):
     else:
         return {k: v for k, v in sorted(na_dict.items(), key=lambda feature: feature[1]['perc'], reverse=True)}
 
-profile_nulls(df=train_df)
+# profile_nulls(df=train_df)
